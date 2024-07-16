@@ -3,9 +3,9 @@ import { Stack } from "expo-router";
 
 export default function RootLayout() {
   useFonts({
-    outfit: require("./../assets/fonts/Outfit-Regular.ttf"),
-    outfitMedium: require("./../assets/fonts/Outfit-Regular.ttf"),
-    outfitBold: require("./../assets/fonts/Outfit-Regular.ttf"),
+    outfit: require("@/assets/fonts/Outfit-Regular.ttf"),
+    outfitMedium: require("@/assets/fonts/Outfit-Medium.ttf"),
+    outfitBold: require("@/assets/fonts/Outfit-Bold.ttf"),
   });
 
   return (
