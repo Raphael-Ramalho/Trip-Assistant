@@ -33,7 +33,7 @@ export const loginStyles = StyleSheet.create({
   },
   img: {
     width: "100%",
-    height: 500,
+    height: 550,
   },
   title: {
     ...text,

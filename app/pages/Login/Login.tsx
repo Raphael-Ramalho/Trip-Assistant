@@ -1,4 +1,4 @@
-import { loginStyles } from "@/components/Login/Login.styles";
+import { loginStyles } from "@/pages/Login/Login.styles";
 import { Image, Text, View } from "react-native";
 
 export default function Login() {

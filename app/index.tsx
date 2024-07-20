@@ -1,6 +1,5 @@
-
-import Login from '@/components/Login/Login';
-import { View } from 'react-native';
+import Login from "@/pages/Login/Login";
+import { View } from "react-native";
 
 export default function Index() {
   return (
