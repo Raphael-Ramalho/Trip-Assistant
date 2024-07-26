@@ -1,7 +1,7 @@
 import { signInStyles } from "@/pages/SignIn/SignIn.styles";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { useEffect } from "react";
-import { Text, TextInput, View } from "react-native";
+import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const {
   container,
@@ -19,6 +19,7 @@ const {
 
 export default function SignIn() {
   const navigation = useNavigation();
+  const router = useRouter();
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -47,14 +48,17 @@ export default function SignIn() {
       </View>
 
       {/* Sign In Button */}
-      <View style={signInButton}>
+      <TouchableOpacity style={signInButton}>
         <Text style={signInText}>Sign In</Text>
-      </View>
+      </TouchableOpacity>
 
       {/* Create Account Button */}
-      <View style={createAccountButton}>
+      <TouchableOpacity
+        style={createAccountButton}
+        onPress={() => router.replace("pages/SignUp/SignUp")}
+      >
         <Text style={createAccountText}>Create Account</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }

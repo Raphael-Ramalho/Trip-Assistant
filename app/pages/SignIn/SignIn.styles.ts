@@ -25,7 +25,7 @@ const formStyles = StyleSheet.create({
 const buttonsStyle = StyleSheet.create({
   /* Sign in button */
   signInButton: {
-    padding: 15,
+    padding: 20,
     backgroundColor: colors.primary,
     borderRadius: 15,
     marginTop: 50,
@@ -36,7 +36,7 @@ const buttonsStyle = StyleSheet.create({
   },
   /* Create account button */
   createAccountButton: {
-    padding: 13,
+    padding: 18,
     backgroundColor: colors.white,
     borderRadius: 15,
     marginTop: 20,
