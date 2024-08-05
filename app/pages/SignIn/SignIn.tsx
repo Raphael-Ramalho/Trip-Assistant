@@ -1,7 +1,8 @@
 import { signInStyles } from "@/pages/SignIn/SignIn.styles";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation, useRouter } from "expo-router";
 import { useEffect } from "react";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const {
   container,
@@ -27,6 +28,10 @@ export default function SignIn() {
 
   return (
     <View style={container}>
+      <TouchableOpacity onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
+
       <Text style={mainText}>Let's Sign You In</Text>
       <Text style={secondaryText}>Welcome Back</Text>
       <Text style={terciaryText}>You've been missed!</Text>

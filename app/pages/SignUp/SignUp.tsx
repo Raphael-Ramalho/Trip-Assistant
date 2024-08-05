@@ -3,6 +3,7 @@ import {
   createAccountStyle,
   formStyles,
 } from "@/pages/SignUp/SignUp.styles";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -22,6 +23,10 @@ export default function SignUp() {
 
   return (
     <View style={container}>
+      <TouchableOpacity onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
+      
       <Text style={text}>Create New Account</Text>
 
       {/* User Full Name */}

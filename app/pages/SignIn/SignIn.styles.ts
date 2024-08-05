@@ -4,8 +4,6 @@ import Theme from "@/theme/Theme";
 
 const { colors } = Theme;
 
-
-
 const formStyles = StyleSheet.create({
   emailContainer: {
     marginTop: 50,
@@ -20,7 +18,7 @@ const formStyles = StyleSheet.create({
   inputTitle: {
     fontFamily: "outfit",
   },
-})
+});
 
 const buttonsStyle = StyleSheet.create({
   /* Sign in button */
@@ -40,13 +38,13 @@ const buttonsStyle = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 15,
     marginTop: 20,
-    borderWidth: 1
+    borderWidth: 1,
   },
   createAccountText: {
     color: colors.primary,
     textAlign: "center",
   },
-})
+});
 
 export const signInStyles = StyleSheet.create({
   ...formStyles,
@@ -55,11 +53,12 @@ export const signInStyles = StyleSheet.create({
     backgroundColor: colors.white,
     height: "100%",
     padding: 25,
-    paddingTop: 80,
+    paddingTop: 40,
   },
   mainText: {
     fontFamily: "outfitBold",
     fontSize: 30,
+    marginTop: 30,
   },
   secondaryText: {
     fontFamily: "outfit",

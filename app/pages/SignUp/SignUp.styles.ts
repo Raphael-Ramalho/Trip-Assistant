@@ -7,13 +7,14 @@ const { colors } = Theme;
 export const createAccountStyle = StyleSheet.create({
   container: {
     padding: 25,
-    paddingTop: 80,
+    paddingTop: 40,
     backgroundColor: colors.white,
     height: "100%",
   },
   text: {
     fontFamily: "outfitBold",
     fontSize: 30,
+    marginTop: 30,
   },
 });
 
