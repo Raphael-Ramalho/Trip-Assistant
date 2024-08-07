@@ -26,7 +26,7 @@ export default function SignUp() {
       <TouchableOpacity onPress={() => router.back()}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
-      
+
       <Text style={text}>Create New Account</Text>
 
       {/* User Full Name */}

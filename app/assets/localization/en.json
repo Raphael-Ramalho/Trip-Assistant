@@ -1,0 +1,25 @@
+{
+  "pages": {
+    "signup": {
+      "title": "Create New Account",
+      "inputs": {
+        "fullName": {
+          "text": "Full Name",
+          "placeholder": "Enter Full Name"
+        },
+        "email": {
+          "text": "Email",
+          "placeholder": "Enter Email"
+        },
+        "password": {
+          "text": "Password",
+          "placeholder": "Enter Password"
+        }
+      },
+      "buttons": {
+        "createAccount": "Create Account",
+        "signIn":"Sign In"
+      }
+    }
+  }
+}
