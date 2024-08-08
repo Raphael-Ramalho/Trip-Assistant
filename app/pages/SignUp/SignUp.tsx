@@ -7,6 +7,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useTranslation } from 'react-i18next'
 
 const { text, container } = createAccountStyle;
 const { inputContainer, input, inputTitle } = formStyles;
@@ -16,6 +17,11 @@ const { createAccountButton, createAccountText, signInButton, signInText } =
 export default function SignUp() {
   const navigation = useNavigation();
   const router = useRouter();
+  const { t } = useTranslation();
+
+  const signUpPrefix = "pages.signUp";
+  const inputPrefix = `${signUpPrefix}.inputs`;
+  const buttonPrefix = `${signUpPrefix}.buttons`;
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -27,41 +33,47 @@ export default function SignUp() {
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
 
-      <Text style={text}>Create New Account</Text>
+      <Text style={text}>{t(`${signUpPrefix}.title`)}</Text>
 
       {/* User Full Name */}
       <View style={inputContainer}>
-        <Text style={inputTitle}>Full Name</Text>
-        <TextInput placeholder="Enter Full Name" style={input} />
+        <Text style={inputTitle}>{t(`${inputPrefix}.fullName.text`)}</Text>
+        <TextInput
+          placeholder={t(`${inputPrefix}.fullName.placeholder`)}
+          style={input}
+        />
       </View>
 
       {/* Email */}
       <View style={inputContainer}>
-        <Text style={inputTitle}>Email</Text>
-        <TextInput placeholder="Enter Email" style={input} />
+        <Text style={inputTitle}>{t(`${inputPrefix}.email.text`)}</Text>
+        <TextInput
+          placeholder={t(`${inputPrefix}.email.placeholder`)}
+          style={input}
+        />
       </View>
 
       {/* Password */}
       <View style={inputContainer}>
-        <Text style={inputTitle}>Password</Text>
+        <Text style={inputTitle}>{t(`${inputPrefix}.password.text`)}</Text>
         <TextInput
-          placeholder="Enter Password"
+          placeholder={t(`${inputPrefix}.password.placeholder`)}
           secureTextEntry={true}
           style={input}
         />
       </View>
 
-      {/* Sign In Button */}
+      {/* Create Account Button */}
       <TouchableOpacity style={signInButton}>
-        <Text style={signInText}>Create Account</Text>
+        <Text style={signInText}>{t(`${buttonPrefix}.createAccount`)}</Text>
       </TouchableOpacity>
 
-      {/* Create Account Button */}
+      {/* Sign In Button */}
       <TouchableOpacity
         style={createAccountButton}
         onPress={() => router.replace("pages/SignIn/SignIn")}
       >
-        <Text style={createAccountText}>Sign In</Text>
+        <Text style={createAccountText}>{t(`${buttonPrefix}.signIn`)}</Text>
       </TouchableOpacity>
     </View>
   );

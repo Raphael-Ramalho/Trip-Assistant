@@ -1,6 +1,6 @@
 {
   "pages": {
-    "signup": {
+    "signUp": {
       "title": "Create New Account",
       "inputs": {
         "fullName": {
