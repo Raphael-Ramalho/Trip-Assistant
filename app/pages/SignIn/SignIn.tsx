@@ -2,6 +2,7 @@ import { signInStyles } from "@/pages/SignIn/SignIn.styles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation, useRouter } from "expo-router";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const {
@@ -21,6 +22,11 @@ const {
 export default function SignIn() {
   const navigation = useNavigation();
   const router = useRouter();
+  const { t } = useTranslation();
+
+  const signInPrefix = "pages.signIn";
+  const inputPrefix = `${signInPrefix}.inputs`;
+  const buttonPrefix = `${signInPrefix}.buttons`;
 
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
@@ -32,21 +38,24 @@ export default function SignIn() {
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
 
-      <Text style={mainText}>Let's Sign You In</Text>
-      <Text style={secondaryText}>Welcome Back</Text>
-      <Text style={terciaryText}>You've been missed!</Text>
+      <Text style={mainText}>{t(`${signInPrefix}.mainText`)}</Text>
+      <Text style={secondaryText}>{t(`${signInPrefix}.secondaryText`)}</Text>
+      <Text style={terciaryText}>{t(`${signInPrefix}.terciaryText`)}</Text>
 
       {/* Email */}
       <View style={emailContainer}>
-        <Text style={inputTitle}>Email</Text>
-        <TextInput placeholder="Enter Email" style={input} />
+        <Text style={inputTitle}>{t(`${inputPrefix}.email.text`)}</Text>
+        <TextInput
+          placeholder={t(`${inputPrefix}.email.placeholder`)}
+          style={input}
+        />
       </View>
 
       {/* Password */}
       <View style={emailContainer}>
-        <Text style={inputTitle}>Password</Text>
+        <Text style={inputTitle}>{t(`${inputPrefix}.password.text`)}</Text>
         <TextInput
-          placeholder="Enter Password"
+          placeholder={t(`${inputPrefix}.password.placeholder`)}
           secureTextEntry={true}
           style={input}
         />
@@ -54,7 +63,7 @@ export default function SignIn() {
 
       {/* Sign In Button */}
       <TouchableOpacity style={signInButton}>
-        <Text style={signInText}>Sign In</Text>
+        <Text style={signInText}>{t(`${buttonPrefix}.signIn`)}</Text>
       </TouchableOpacity>
 
       {/* Create Account Button */}
@@ -62,7 +71,9 @@ export default function SignIn() {
         style={createAccountButton}
         onPress={() => router.replace("pages/SignUp/SignUp")}
       >
-        <Text style={createAccountText}>Create Account</Text>
+        <Text style={createAccountText}>
+          {t(`${buttonPrefix}.createAccount`)}
+        </Text>
       </TouchableOpacity>
     </View>
   );

@@ -1,5 +1,10 @@
 {
   "pages": {
+    "login": {
+      "title": "AI Travel Planner",
+      "subtitle": "Discover your next adventure. Personalized itineraries at your fingertips. Travel smarter with AI-driven insights",
+      "signInButton": "Sign In With Google"
+    },
     "signUp": {
       "title": "Create New Account",
       "inputs": {
@@ -18,7 +23,26 @@
       },
       "buttons": {
         "createAccount": "Create Account",
-        "signIn":"Sign In"
+        "signIn": "Sign In"
+      }
+    },
+    "signIn": {
+      "mainText": "Let's Sign You In",
+      "secondaryText": "Welcome Back",
+      "terciaryText": "You've been missed!",
+      "inputs": {
+        "email": {
+          "text": "Email",
+          "placeholder": "Enter Email"
+        },
+        "password": {
+          "text": "Password",
+          "placeholder": "Enter Password"
+        }
+      },
+      "buttons": {
+        "createAccount": "Create Account",
+        "signIn": "Sign In"
       }
     }
   }

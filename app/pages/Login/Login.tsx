@@ -1,10 +1,14 @@
 import { loginStyles } from "@/pages/Login/Login.styles";
 import { useRouter } from "expo-router";
+import { useTranslation } from "react-i18next";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export default function Login() {
+  const router = useRouter();
+  const { t } = useTranslation();
 
-  const router = useRouter()
+  const loginPrefix = "pages.login";
+
   return (
     <View>
       <Image
@@ -13,15 +17,17 @@ export default function Login() {
       />
 
       <View style={loginStyles.container}>
-        <Text style={loginStyles.title}>AI Travel Planner</Text>
+        <Text style={loginStyles.title}>{t(`${loginPrefix}.title`)}</Text>
 
-        <Text style={loginStyles.subTitle}>
-          Discover your next adventure. Personalized itineraries at your
-          fingertips. Travel smarter with AI-driven insights
-        </Text>
+        <Text style={loginStyles.subTitle}>{t(`${loginPrefix}.subtitle`)}</Text>
 
-        <TouchableOpacity style={loginStyles.button} onPress={()=>router.push('pages/SignIn/SignIn')}>
-          <Text style={loginStyles.buttonText}>Sign In With Google</Text>
+        <TouchableOpacity
+          style={loginStyles.button}
+          onPress={() => router.push("pages/SignIn/SignIn")}
+        >
+          <Text style={loginStyles.buttonText}>
+            {t(`${loginPrefix}.signInButton`)}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
