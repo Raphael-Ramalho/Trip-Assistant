@@ -5,9 +5,17 @@ import {
 } from "@/pages/SignUp/SignUp.styles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation, useRouter } from "expo-router";
-import { useEffect } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from "react";
+import {
+  Text,
+  TextInput,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useTranslation } from "react-i18next";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/configs/FirebaseConfig";
 
 const { text, container } = createAccountStyle;
 const { inputContainer, input, inputTitle } = formStyles;
@@ -17,6 +25,9 @@ const { createAccountButton, createAccountText, signInButton, signInText } =
 export default function SignUp() {
   const navigation = useNavigation();
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const { t } = useTranslation();
 
   const signUpPrefix = "pages.signUp";
@@ -26,6 +37,27 @@ export default function SignUp() {
   useEffect(() => {
     navigation.setOptions({ headerShown: false });
   }, []);
+
+  const onCreateAccount = () => {
+    if (!fullName && !password && !email) {
+      ToastAndroid.show(
+        t(`${signUpPrefix}.toast.missingInfo`),
+        ToastAndroid.SHORT
+      );
+      return;
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log({ user });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log({ errorMessage, errorCode });
+      });
+  };
 
   return (
     <View style={container}>
@@ -41,6 +73,7 @@ export default function SignUp() {
         <TextInput
           placeholder={t(`${inputPrefix}.fullName.placeholder`)}
           style={input}
+          onChangeText={setFullName}
         />
       </View>
 
@@ -50,6 +83,7 @@ export default function SignUp() {
         <TextInput
           placeholder={t(`${inputPrefix}.email.placeholder`)}
           style={input}
+          onChangeText={setEmail}
         />
       </View>
 
@@ -60,12 +94,15 @@ export default function SignUp() {
           placeholder={t(`${inputPrefix}.password.placeholder`)}
           secureTextEntry={true}
           style={input}
+          onChangeText={setPassword}
         />
       </View>
 
       {/* Create Account Button */}
       <TouchableOpacity style={signInButton}>
-        <Text style={signInText}>{t(`${buttonPrefix}.createAccount`)}</Text>
+        <Text onPress={onCreateAccount} style={signInText}>
+          {t(`${buttonPrefix}.createAccount`)}
+        </Text>
       </TouchableOpacity>
 
       {/* Sign In Button */}

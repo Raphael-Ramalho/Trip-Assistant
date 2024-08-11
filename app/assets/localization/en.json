@@ -7,6 +7,9 @@
     },
     "signUp": {
       "title": "Create New Account",
+      "toast":{
+        "missingInfo":"Please enter all details"
+      },
       "inputs": {
         "fullName": {
           "text": "Full Name",
