@@ -6,5 +6,5 @@ import { Redirect } from "expo-router";
 
 export default function Index() {
   const user = auth.currentUser;
-  return <View>{user ? <Redirect href={"/MyTrip"} /> : <Login />}</View>;
+  return <View>{true ? <Redirect href={"/Tabs/MyTrip"} /> : <Login />}</View>;
 }
