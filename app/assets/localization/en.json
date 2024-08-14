@@ -33,6 +33,10 @@
       "mainText": "Let's Sign You In",
       "secondaryText": "Welcome Back",
       "terciaryText": "You've been missed!",
+      "toast":{
+        "missingInfo":"Please enter email and password",
+        "invalidCredentials":"Invalid Credentials" 
+      },
       "inputs": {
         "email": {
           "text": "Email",
