@@ -52,5 +52,16 @@
         "signIn": "Sign In"
       }
     }
+  },
+  "tabs":{
+    "myTrip":{
+      "title":"My Trip"
+    },
+    "discover":{
+      "title":"Discover"
+    },
+    "profile":{
+      "title":"Profile"
+    }
   }
 }
