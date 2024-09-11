@@ -7,8 +7,8 @@
     },
     "signUp": {
       "title": "Create New Account",
-      "toast":{
-        "missingInfo":"Please enter all details"
+      "toast": {
+        "missingInfo": "Please enter all details"
       },
       "inputs": {
         "fullName": {
@@ -33,9 +33,9 @@
       "mainText": "Let's Sign You In",
       "secondaryText": "Welcome Back",
       "terciaryText": "You've been missed!",
-      "toast":{
-        "missingInfo":"Please enter email and password",
-        "invalidCredentials":"Invalid Credentials" 
+      "toast": {
+        "missingInfo": "Please enter email and password",
+        "invalidCredentials": "Invalid Credentials"
       },
       "inputs": {
         "email": {
@@ -53,15 +53,22 @@
       }
     }
   },
-  "tabs":{
-    "myTrip":{
-      "title":"My Trip"
+  "tabs": {
+    "myTrip": {
+      "title": "My Trip"
     },
-    "discover":{
-      "title":"Discover"
+    "discover": {
+      "title": "Discover"
     },
-    "profile":{
-      "title":"Profile"
+    "profile": {
+      "title": "Profile"
+    }
+  },
+  "components": {
+    "card": {
+      "no-trips": "No trips planned yet",
+      "no-trips-under-label": "Looks like its time to plan a new travel experience! Get Started below",
+      "button": "Start a new trip"
     }
   }
 }
