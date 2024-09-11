@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 
 // Usually config such as the following one should not be uploaded, but since this project has no relevance, it will be stored in the repository
 const firebaseConfig = {
-  apiKey: "AIzaSyDZ7O-EjMDkrzyrMjxy4AjmdKzaEVg0xeU",
-  authDomain: "trip-assistant-br.firebaseapp.com",
-  projectId: "trip-assistant-br",
-  storageBucket: "trip-assistant-br.appspot.com",
-  messagingSenderId: "1064686251238",
-  appId: "1:1064686251238:web:67cea17cdb0ce5f7785f27",
-  measurementId: "G-WPH2FL8F4X",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+  appId: process.env.REACT_APP_MESSAGING_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
