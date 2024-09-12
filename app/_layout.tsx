@@ -1,6 +1,8 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StyleSheet, Text } from "react-native";
+import { ContextDataType, CreateTripContext } from "./context/CreateTripContext";
+import { useState } from "react";
 
 const style = StyleSheet.create({
   loadingText: {
@@ -12,6 +14,7 @@ const style = StyleSheet.create({
 });
 
 export default function RootLayout() {
+  const [tripContext, setTripContext] = useState<ContextDataType>([]);
   let [fontsLoaded] = useFonts({
     outfit: require("@/assets/fonts/Outfit-Regular.ttf"),
     outfitMedium: require("@/assets/fonts/Outfit-Medium.ttf"),
@@ -23,13 +26,15 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      {/* <Stack.Screen name="index" /> */}
-      <Stack.Screen name="Tabs" />
-    </Stack>
+    <CreateTripContext.Provider value={{ tripContext, setTripContext }}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        {/* <Stack.Screen name="index" /> */}
+        <Stack.Screen name="Tabs" />
+      </Stack>
+    </CreateTripContext.Provider>
   );
 }

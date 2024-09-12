@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 
 import { getAuth } from "firebase/auth";
 
-// Usually config such as the following one should not be uploaded, but since this project has no relevance, it will be stored in the repository
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
