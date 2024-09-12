@@ -15,13 +15,13 @@ const style = StyleSheet.create({
 
 export default function RootLayout() {
   const [tripContext, setTripContext] = useState<ContextDataType>([]);
-  let [fontsLoaded] = useFonts({
+  let [fontsLoaded, error] = useFonts({
     outfit: require("@/assets/fonts/Outfit-Regular.ttf"),
     outfitMedium: require("@/assets/fonts/Outfit-Medium.ttf"),
     outfitBold: require("@/assets/fonts/Outfit-Bold.ttf"),
   });
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded && !error) {
     return <Text style={style.loadingText}>Loading...</Text>;
   }
 
@@ -32,8 +32,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       >
-        {/* <Stack.Screen name="index" /> */}
-        <Stack.Screen name="Tabs" />
+        <Stack.Screen name="index" />
       </Stack>
     </CreateTripContext.Provider>
   );

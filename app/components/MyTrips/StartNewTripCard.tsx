@@ -16,12 +16,12 @@ function StartNewTripCard() {
       <Text style={cardStyles.label}>{t(`${cardPrefix}.no-trips`)}</Text>
 
       <Text style={cardStyles.underLabel}>
-        {t(`${cardPrefix}.no-trips-under-label"`)}
+        {t(`${cardPrefix}.no-trips-under-label`)}
       </Text>
 
       <TouchableOpacity
         style={cardStyles.button}
-        onPress={() => router.push("/searchPlace/SearchPlace")} //verify
+        onPress={() => router.push("/components/searchPlace/SearchPlace")}
       >
         <Text style={cardStyles.buttonText}>{t(`${cardPrefix}.button`)}</Text>
       </TouchableOpacity>
