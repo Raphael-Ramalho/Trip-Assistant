@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "expo-router";
 
-function StartNewTripCard() {
+export function StartNewTripCard() {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -21,11 +21,11 @@ function StartNewTripCard() {
 
       <TouchableOpacity
         style={cardStyles.button}
-        onPress={() => router.push("/components/searchPlace/SearchPlace")}
+        onPress={() => router.navigate("/pages/MyTrips/SearchPlace")}
       >
         <Text style={cardStyles.buttonText}>{t(`${cardPrefix}.button`)}</Text>
       </TouchableOpacity>
     </View>
   );
 }
-export default StartNewTripCard;
+

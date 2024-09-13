@@ -1,7 +1,7 @@
+import { searchStyle } from "@/pages/MyTrips/SearchPlace/SearchPlace.styled";
 import { useNavigation } from "expo-router";
 import { useEffect } from "react";
-import { Text, View } from "react-native";
-import { searchStyle } from "./SearchPlace.styled";
+import { View } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const SearchPlace = () => {
@@ -20,7 +20,6 @@ const SearchPlace = () => {
       <GooglePlacesAutocomplete
         placeholder="Search"
         onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
           console.log(data, details);
         }}
         query={{

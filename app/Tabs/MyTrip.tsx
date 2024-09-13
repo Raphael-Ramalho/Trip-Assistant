@@ -1,4 +1,4 @@
-import StartNewTripCard from "@/components/MyTrips/StartNewTripCard";
+import { StartNewTripCard } from "@/pages/MyTrips";
 import { myTripStyles } from "@/Tabs/Tabs.style";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
