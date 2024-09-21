@@ -11,4 +11,9 @@ export const searchStyle = StyleSheet.create({
     backgroundColor: colors.white,
     height: "100%",
   },
+  inputContainer: {
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 25,
+  },
 });

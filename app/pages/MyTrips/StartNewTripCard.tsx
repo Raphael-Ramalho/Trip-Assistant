@@ -21,11 +21,10 @@ export function StartNewTripCard() {
 
       <TouchableOpacity
         style={cardStyles.button}
-        onPress={() => router.navigate("/pages/MyTrips/SearchPlace")}
+        onPress={() => router.push("/pages/MyTrips/SearchPlace/SearchPlace")}
       >
         <Text style={cardStyles.buttonText}>{t(`${cardPrefix}.button`)}</Text>
       </TouchableOpacity>
     </View>
   );
 }
-

@@ -1,1 +1,1 @@
-export * from './SearchPlace'
+export { default as SearchPlace }  from './SearchPlace'

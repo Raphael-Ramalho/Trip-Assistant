@@ -1,11 +1,26 @@
+import { CreateTripContext } from "@/context/CreateTripContext";
 import { searchStyle } from "@/pages/MyTrips/SearchPlace/SearchPlace.styled";
-import { useNavigation } from "expo-router";
-import { useEffect } from "react";
+import { useNavigation, useRouter } from "expo-router";
+import { useContext, useEffect } from "react";
 import { View } from "react-native";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import {
+  GooglePlaceDetail,
+  GooglePlacesAutocomplete,
+} from "react-native-google-places-autocomplete";
+
+type CompleteGoogleDetails = GooglePlaceDetail & {
+  photos: {
+    height: number;
+    html_attributions: string[];
+    photo_reference?: string;
+    width: number;
+  }[];
+};
 
 const SearchPlace = () => {
+  const { tripData, setTripData } = useContext(CreateTripContext);
   const navigation = useNavigation();
+  const router = useRouter();
 
   useEffect(() => {
     navigation.setOptions({
@@ -18,13 +33,26 @@ const SearchPlace = () => {
   return (
     <View style={searchStyle.container}>
       <GooglePlacesAutocomplete
-        placeholder="Search"
+        placeholder="Search Place"
+        fetchDetails={true}
         onPress={(data, details = null) => {
-          console.log(data, details);
+          const fixedDetails = details as CompleteGoogleDetails;
+          setTripData({
+            locationInfo: {
+              name: data.description,
+              coordinates: fixedDetails?.geometry.location,
+              photoRef: fixedDetails?.photos[0]?.photo_reference,
+              url: fixedDetails?.url,
+            },
+          });
+          router.push("/pages/MyTrips/SelectTraveler/SelectTraveler");
         }}
         query={{
-          key: process.env.REACT_APP_GOOGLE_PLACES_KEY,
+          key: process.env.EXPO_PUBLIC_GOOGLE_PLACES_KEY,
           language: "en",
+        }}
+        styles={{
+          textInputContainer: searchStyle.inputContainer,
         }}
       />
     </View>
