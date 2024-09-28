@@ -1,0 +1,43 @@
+import { TravelersListType } from "@/pages/MyTrips/SelectTraveler/selectTraveler.types";
+import { Text, View } from "react-native";
+import Theme from "@/theme/Theme";
+
+const { colors } = Theme;
+
+const OptionCard = ({
+  option,
+  selectedTraveler,
+}: {
+  option: TravelersListType;
+  selectedTraveler?: string;
+}) => {
+  return (
+    <View
+      style={[
+        {
+          padding: 25,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          backgroundColor: colors.lightGray,
+          borderRadius: 15,
+        },
+        selectedTraveler === option.title && { borderWidth: 3 },
+      ]}
+    >
+      <View>
+        <Text style={{ fontSize: 20, fontFamily: "outfitBold" }}>
+          {option?.title}
+        </Text>
+        <Text
+          style={{ fontSize: 17, fontFamily: "outfit", color: colors.gray }}
+        >
+          {option?.desc}
+        </Text>
+        <Text style={{ fontSize: 35 }}>{option.icon}</Text>
+      </View>
+    </View>
+  );
+};
+
+export default OptionCard;

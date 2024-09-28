@@ -1,5 +1,6 @@
 {
   "white": "#fff",
   "primary": "#000",
-  "gray": "#808080"
+  "gray": "#808080",
+  "lightGray": "#f2f2f2"
 }
