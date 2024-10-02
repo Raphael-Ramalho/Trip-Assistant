@@ -1,3 +1,4 @@
+import { TravelersListType } from "@/pages/MyTrips/SelectTraveler/selectTraveler.types";
 import { createContext, Dispatch, SetStateAction } from "react";
 import { Point } from "react-native-google-places-autocomplete";
 
@@ -8,7 +9,7 @@ export type ContextDataType = {
     photoRef?: string;
     url?: string;
   };
-  travelerCount?: string;
+  travelerCount?: TravelersListType;
 };
 
 export type TripContextObject = {

@@ -9,7 +9,7 @@ const OptionCard = ({
   selectedTraveler,
 }: {
   option: TravelersListType;
-  selectedTraveler?: string;
+  selectedTraveler?: TravelersListType;
 }) => {
   return (
     <View
