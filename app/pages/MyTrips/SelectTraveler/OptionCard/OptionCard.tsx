@@ -22,7 +22,7 @@ const OptionCard = ({
           backgroundColor: colors.lightGray,
           borderRadius: 15,
         },
-        selectedTraveler === option.title && { borderWidth: 3 },
+        selectedTraveler === option?.id && { borderWidth: 3 },
       ]}
     >
       <View>

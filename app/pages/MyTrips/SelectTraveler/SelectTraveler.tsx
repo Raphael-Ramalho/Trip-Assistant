@@ -1,13 +1,15 @@
+import { CreateTripContext } from "@/context/CreateTripContext";
 import OptionCard from "@/pages/MyTrips/SelectTraveler/OptionCard/OptionCard";
 import { SelectTravelersList } from "@/pages/MyTrips/SelectTraveler/selectTraveler.constants";
 import { selectStyle } from "@/pages/MyTrips/SelectTraveler/SelectTraveler.styled";
 import { useNavigation } from "expo-router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
 const SelectTraveler = () => {
   const navigation = useNavigation();
   const [selectedTraveler, setSelectedTraveler] = useState<string>();
+  const { tripData, setTripData } = useContext(CreateTripContext);
 
   useEffect(() => {
     navigation.setOptions({
@@ -16,6 +18,11 @@ const SelectTraveler = () => {
       headerTitle: "",
     });
   }, []);
+
+  useEffect(() => {
+    setTripData({ ...tripData, travelerCount: selectedTraveler });
+  }, [selectedTraveler]);
+
 
   return (
     <View style={selectStyle.container}>
@@ -33,7 +40,7 @@ const SelectTraveler = () => {
             onPress={() => setSelectedTraveler(item.title)}
             key={item.title}
           >
-            <OptionCard option={item} selectedTraveler={selectedTraveler}/>
+            <OptionCard option={item} selectedTraveler={selectedTraveler} />
           </TouchableOpacity>
         )}
       />

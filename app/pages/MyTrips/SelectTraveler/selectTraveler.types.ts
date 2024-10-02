@@ -3,4 +3,5 @@ export type TravelersListType = {
   desc: string;
   icon: string;
   people: string;
+  id?: string;
 };

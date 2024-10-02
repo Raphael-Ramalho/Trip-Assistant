@@ -8,6 +8,7 @@ export type ContextDataType = {
     photoRef?: string;
     url?: string;
   };
+  travelerCount?: string;
 };
 
 export type TripContextObject = {
