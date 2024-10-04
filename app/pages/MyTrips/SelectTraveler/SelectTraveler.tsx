@@ -4,7 +4,7 @@ import { SelectTravelersList } from "@/pages/MyTrips/SelectTraveler/selectTravel
 import { selectStyle } from "@/pages/MyTrips/SelectTraveler/SelectTraveler.styled";
 import { TravelersListType } from "@/pages/MyTrips/SelectTraveler/selectTraveler.types";
 import Theme from "@/theme/Theme";
-import { useNavigation } from "expo-router";
+import { Link, useNavigation } from "expo-router";
 import { useContext, useEffect, useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
@@ -60,16 +60,21 @@ const SelectTraveler = () => {
           marginTop: 20,
         }}
       >
-        <Text
-          style={{
-            textAlign: "center",
-            color: colors.white,
-            fontFamily: "outfitMedium",
-            fontSize: 20,
-          }}
+        <Link
+          href={"/pages/MyTrips/SelectDates/SelectDates"}
+          style={{ width: "100%", textAlign: "center" }}
         >
-          Continue
-        </Text>
+          <Text
+            style={{
+              textAlign: "center",
+              color: colors.white,
+              fontFamily: "outfitMedium",
+              fontSize: 20,
+            }}
+          >
+            Continue
+          </Text>
+        </Link>
       </TouchableOpacity>
     </View>
   );
