@@ -6,10 +6,10 @@ const { colors } = Theme;
 
 const OptionCard = ({
   option,
-  selectedTraveler,
+  selectedOption,
 }: {
   option: TravelersListType;
-  selectedTraveler?: TravelersListType;
+  selectedOption?: TravelersListType;
 }) => {
   return (
     <View
@@ -22,7 +22,7 @@ const OptionCard = ({
           backgroundColor: colors.lightGray,
           borderRadius: 15,
         },
-        selectedTraveler === option?.id && { borderWidth: 3 },
+        selectedOption === option?.id && { borderWidth: 3 },
       ]}
     >
       <View>
