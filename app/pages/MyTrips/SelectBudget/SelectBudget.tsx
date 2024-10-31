@@ -1,8 +1,9 @@
+import { CreateTripContext } from "@/context/CreateTripContext";
 import OptionCard from "@/pages/MyTrips/SelectTraveler/OptionCard/OptionCard";
 import Theme from "@/theme/Theme";
 import { useNavigation } from "expo-router";
-import { useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { useContext, useEffect, useState } from "react";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
 const { colors } = Theme;
 
@@ -26,7 +27,19 @@ const selectBudgetOptions = [
 
 const SelectBudget = () => {
   const navigation = useNavigation();
-  const [selectedOption, setSelectedOption] = useState();
+  const { tripData, setTripData } = useContext(CreateTripContext);
+  const [selectedOption, setSelectedOption] = useState<{
+    id: string;
+    title: string;
+    desc: string;
+  }>();
+
+  useEffect(() => {
+    selectedOption && setTripData({
+      ...tripData,
+      budget: selectedOption?.title,
+    });
+  }, [selectedOption]);
 
   useEffect(() => {
     navigation.setOptions({
@@ -41,7 +54,7 @@ const SelectBudget = () => {
         paddingTop: 75,
         padding: 25,
         backgroundColor: colors.white,
-        height: '100%'
+        height: "100%",
       }}
     >
       <Text
@@ -67,9 +80,12 @@ const SelectBudget = () => {
         <FlatList
           data={selectBudgetOptions}
           renderItem={({ item, index }) => (
-            <View>
+            <TouchableOpacity
+              style={{ marginVertical: 10 }}
+              onPress={() => setSelectedOption(item)}
+            >
               <OptionCard option={item} selectedOption={selectedOption} />
-            </View>
+            </TouchableOpacity>
           )}
         />
       </View>

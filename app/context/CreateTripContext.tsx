@@ -14,6 +14,7 @@ export type ContextDataType = {
   startDate?: Moment;
   endDate?: Moment;
   totalNoOfDays?: number;
+  budget?: string;
 };
 
 export type TripContextObject = {

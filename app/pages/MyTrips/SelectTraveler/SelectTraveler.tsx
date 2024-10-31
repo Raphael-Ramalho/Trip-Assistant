@@ -47,7 +47,7 @@ const SelectTraveler = () => {
             onPress={() => setSelectedTraveler(item)}
             key={item.title}
           >
-            <OptionCard option={item} selectedTraveler={selectedTraveler} />
+            <OptionCard option={item} selectedOption={selectedTraveler} />
           </TouchableOpacity>
         )}
       />
