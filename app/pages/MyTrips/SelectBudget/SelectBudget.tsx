@@ -1,9 +1,15 @@
 import { CreateTripContext } from "@/context/CreateTripContext";
 import OptionCard from "@/pages/MyTrips/SelectTraveler/OptionCard/OptionCard";
 import Theme from "@/theme/Theme";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { useContext, useEffect, useState } from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Text,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const { colors } = Theme;
 
@@ -28,6 +34,7 @@ const selectBudgetOptions = [
 const SelectBudget = () => {
   const navigation = useNavigation();
   const { tripData, setTripData } = useContext(CreateTripContext);
+  const router = useRouter();
   const [selectedOption, setSelectedOption] = useState<{
     id: string;
     title: string;
@@ -35,10 +42,11 @@ const SelectBudget = () => {
   }>();
 
   useEffect(() => {
-    selectedOption && setTripData({
-      ...tripData,
-      budget: selectedOption?.title,
-    });
+    selectedOption &&
+      setTripData({
+        ...tripData,
+        budget: selectedOption?.title,
+      });
   }, [selectedOption]);
 
   useEffect(() => {
@@ -48,6 +56,15 @@ const SelectBudget = () => {
       headerTitle: "",
     });
   }, []);
+
+  const onClickContinue = () => {
+    if (!selectedOption) {
+      ToastAndroid.show("Select Your Budget", ToastAndroid.LONG);
+      return;
+    }
+
+    router.push("/pages/MyTrips/ReviewTrip/ReviewTrip");
+  };
   return (
     <View
       style={{
@@ -89,6 +106,27 @@ const SelectBudget = () => {
           )}
         />
       </View>
+
+      <TouchableOpacity
+        onPress={() => onClickContinue()}
+        style={{
+          padding: 20,
+          backgroundColor: colors.primary,
+          borderRadius: 15,
+          marginTop: 20,
+        }}
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            color: colors.white,
+            fontFamily: "outfitMedium",
+            fontSize: 20,
+          }}
+        >
+          Continue
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
