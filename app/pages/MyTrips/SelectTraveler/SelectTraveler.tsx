@@ -24,7 +24,7 @@ const SelectTraveler = () => {
   }, []);
 
   useEffect(() => {
-    setTripData({ ...tripData, travelerCount: selectedTraveler });
+    setTripData({ ...tripData, traveler: selectedTraveler });
   }, [selectedTraveler]);
 
   useEffect(() => {

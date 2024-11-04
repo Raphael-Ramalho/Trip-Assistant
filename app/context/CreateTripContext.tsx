@@ -10,7 +10,7 @@ export type ContextDataType = {
     photoRef?: string;
     url?: string;
   };
-  travelerCount?: TravelersListType;
+  traveler?: TravelersListType;
   startDate?: Moment;
   endDate?: Moment;
   totalNoOfDays?: number;
