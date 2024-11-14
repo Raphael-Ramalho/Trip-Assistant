@@ -1,5 +1,5 @@
 import Theme from "@/theme/Theme";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { useContext, useEffect } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -11,6 +11,8 @@ const { colors } = Theme;
 const ReviewTrip = () => {
   const navigation = useNavigation();
   const { tripData, setTripData } = useContext(CreateTripContext);
+
+  const router = useRouter()
 
   useEffect(() => {
     navigation.setOptions({
@@ -149,7 +151,7 @@ const ReviewTrip = () => {
       </View>
 
       <TouchableOpacity
-        // onPress={() => onClickContinue()}
+        onPress={() => router.replace("/pages/MyTrips/SelectTraveler/GenerateTrip")}
         style={{
           padding: 20,
           backgroundColor: colors.primary,

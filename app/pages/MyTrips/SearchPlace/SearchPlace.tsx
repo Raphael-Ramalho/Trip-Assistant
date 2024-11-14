@@ -18,7 +18,7 @@ type CompleteGoogleDetails = GooglePlaceDetail & {
 };
 
 const SearchPlace = () => {
-  const { tripData, setTripData } = useContext(CreateTripContext);
+  const { setTripData } = useContext(CreateTripContext);
   const navigation = useNavigation();
   const router = useRouter();
 
